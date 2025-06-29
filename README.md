@@ -69,4 +69,80 @@ To elevate the quality and modeling potential of the data, the following improve
 - Used `missingno` to visualize missing patterns before and after cleaning.
 
 ---
+# 🌍 Climate and Emissions Data Exploration – Stage 2
+
+## 📑 Stage 2: Data Exploration and Visualization
+
+This stage involves deep exploration and visualization of the cleaned climate and emissions dataset. It aims to derive insights, detect trends, outliers, and correlations that are relevant for hypothesis testing and future machine learning models.
+
+---
+
+### 📌 Goals:
+- Understand data distributions, relationships, and trends.
+- Define hypotheses around CO₂ emissions and potential predictors.
+- Prepare variables and visual assets for model development.
+
+---
+
+### 🛠️ Notebook Contents
+
+1. **Data Import & Setup**  
+   Imported libraries and loaded the cleaned dataset (`data_cleaned.csv`).
+
+2. **Global Overview**  
+   - Dataset shape: `(1700, 18)`
+   - Printed descriptive statistics, column types, and sample rows.
+   - Checked for and removed missing values (newly added step).
+
+3. **Feature Engineering**  
+   - Created `en_ttl` (total energy use)
+   - Applied `log` transformation to skewed features like `gdp`, `pop`, `co2_ttl`, etc. (improvement).
+   - Removed less informative features based on correlation and VIF analysis.
+
+4. **Hypothesis**  
+   > _CO₂ emissions per capita can be predicted using features like energy use, GDP, urbanization, etc._
+
+5. **Correlation and VIF**  
+   - Computed and plotted correlation matrix
+   - Selected best features by removing high VIF columns
+
+6. **Visualizations**
+   - Global average CO₂ per capita (1991–2008)
+   - CO₂ vs population
+   - Country-specific trends (USA, India, etc.)
+   - Bubble plots with 4D data encoding
+   - Pairplots for all relationships
+   - Annotated scatterplots for top emitters (improvement)
+   - Removed outlier country UAE to enhance trend clarity
+
+---
+
+### 🚀 Improvements Added
+
+| Improvement | Description | Code Location |
+|------------|-------------|----------------|
+| ✅ Missing value handling | Explicitly checked and removed missing data | After data import |
+| ✅ Log transformation | Applied to highly skewed numerical columns | Before correlation matrix |
+| ✅ Annotated scatterplots | Added labels to major emitters in visualizations | In scatterplot section |
+
+---
+
+### 📈 Key Insights
+
+- `co2_per_cap` is the best target variable: normalized, meaningful, and strongly correlated with energy use.
+- High multicollinearity detected in some features; resolved with VIF filtering.
+- Visuals reveal trends, outliers, and country-level behavior differences.
+- Recommended model: Random Forest (nonlinear and robust to collinearity).
+
+---
+
+### 📁 Output Files
+- `data_cleaned.csv`: Cleaned input data
+- `stage2_exploration.ipynb`: Notebook with full code and visuals
+
+---
+
+> ✅ Proceeding to Stage 3: Model Development (Regression & Feature Importance)
+
+
 
