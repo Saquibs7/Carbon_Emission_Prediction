@@ -143,6 +143,59 @@ This stage involves deep exploration and visualization of the cleaned climate an
 ---
 
 > ✅ Proceeding to Stage 3: Model Development (Regression & Feature Importance)
+## 📊 Features Used (After Selection)
+- `cereal_yield`
+- `gni_per_cap`
+- `en_per_cap`
+- `pop_urb_aggl_perc`
+- `prot_area_perc`
+- `pop_growth_perc`
+- `urb_pop_growth_perc`
 
+---
 
+## 🚀 Key Enhancements
 
+### ✅ 1. Feature Importances Visualization
+- Understand which variables most influence predictions.
+- Located after model training.
+
+### ✅ 2. Train Set Evaluation
+- Measures R², MSE, and RMSE on training data.
+- Helps assess model overfitting.
+
+### ✅ 3. Forecasted Results Export
+- Saves 20-year predictions to `co2_forecast_20years.csv`..
+
+### ✅ 4. Model Metadata Versioning
+- Saves training metadata inside the `.pkl` file for future reference.
+
+---
+## 📦 Outputs
+- `forecasting_co2_emmision.pkl`: Final trained model with metadata.
+- `co2_forecast_20years.csv`: Forecasted CO₂ emissions for selected countries.
+- `feature_importances.png`: Bar chart of variable importance.
+
+---
+
+## 📈 Model Performance
+- **Cross-validated R²:** 0.986
+- **Test R²:** 0.983
+- **RMSE:** ~0.56 metric tons CO₂ per capita
+
+---
+
+## 📌 How to Run
+
+1. Ensure you have Python 3.8+ and packages: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`.
+2. Run `notebook.ipynb` from top to bottom.
+3. Outputs will be saved in the same directory.
+
+---
+
+## ✨ Future Work
+- Include more countries and years.
+- Integrate real-time CO₂ tracking APIs.
+- Train model ensembles or explore other regressors like XGBoost.
+
+---
